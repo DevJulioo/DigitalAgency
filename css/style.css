@@ -20,6 +20,8 @@ header {
   align-items: center;
   padding: 25px 40px;
   background: linear-gradient(135deg, #7a16f3 0%, #1e51fc 100%);
+  flex-wrap: wrap;
+  gap: 20px;
 }
 
 .navbar-text {
@@ -33,13 +35,19 @@ ul {
   flex-direction: row;
   align-items: center;
   justify-content: center;
-  gap: 50px;
+  gap: 40px;
+  flex-wrap: wrap;
 }
 
 li a {
   color: white;
   text-decoration: none;
   font-weight: 600;
+  transition: opacity 0.2s ease;
+}
+
+li a:hover {
+  opacity: 0.85;
 }
 
 .btn-comecar {
@@ -48,6 +56,7 @@ li a {
   border-radius: 10px;
 }
 
+/* --- SEÇÃO HERO (TOP) --- */
 .top {
   min-height: 70vh;
   background: linear-gradient(135deg, #7a16f3 0%, #1e51fc 100%);
@@ -55,7 +64,7 @@ li a {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  padding: 40px 20px;
+  padding: 60px 20px;
 }
 
 .text {
@@ -140,6 +149,7 @@ button:hover {
   color: white;
 }
 
+/* --- SEÇÃO SERVIÇOS (MAIN) --- */
 .main {
   min-height: 100vh;
   background-color: #fafcfd;
@@ -189,9 +199,7 @@ button:hover {
   background-color: white;
   border-radius: 12px;
   box-shadow: 0px 10px 30px rgba(0, 0, 0, 0.06);
-  transition:
-    transform 0.3s ease,
-    box-shadow 0.3s ease;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
   cursor: pointer;
   text-align: center;
 }
@@ -214,6 +222,7 @@ button:hover {
   margin-top: 5px;
 }
 
+/* --- SEÇÃO POR QUE NOS ESCOLHER (CONTAINER) --- */
 .container {
   display: flex;
   justify-content: space-between;
@@ -286,34 +295,19 @@ button:hover {
   margin: 0;
 }
 
-.card-purple {
-  background-color: #f3e8ff;
-}
-.card-purple h2 {
-  color: #7c3aed;
-}
+.card-purple { background-color: #f3e8ff; }
+.card-purple h2 { color: #7c3aed; }
 
-.card-blue {
-  background-color: #eff6ff;
-}
-.card-blue h2 {
-  color: #2563eb;
-}
+.card-blue { background-color: #eff6ff; }
+.card-blue h2 { color: #2563eb; }
 
-.card-green {
-  background-color: #ecfdf5;
-}
-.card-green h2 {
-  color: #059669;
-}
+.card-green { background-color: #ecfdf5; }
+.card-green h2 { color: #059669; }
 
-.card-peach {
-  background-color: #fff7ed;
-}
-.card-peach h2 {
-  color: #ea580c;
-}
+.card-peach { background-color: #fff7ed; }
+.card-peach h2 { color: #ea580c; }
 
+/* --- SEÇÃO NEWSLETTER (MAIN-UNDER) --- */
 .main-under {
   background: linear-gradient(135deg, #7a16f3 0%, #1e51fc 100%);
   padding: 80px 20px;
@@ -379,6 +373,7 @@ form {
   color: blueviolet;
 }
 
+/* --- SEÇÃO CONTATO (UNDER) --- */
 .under {
   padding: 80px 20px;
   background-color: #fafcfd;
@@ -420,9 +415,7 @@ form {
   background-color: white;
   border-radius: 12px;
   box-shadow: 0px 10px 30px rgba(0, 0, 0, 0.06);
-  transition:
-    transform 0.3s ease,
-    box-shadow 0.3s ease;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
   cursor: pointer;
   text-align: center;
 }
@@ -460,13 +453,15 @@ form {
   color: white;
 }
 
+/* --- SEÇÃO RODAPÉ (FOOTER) --- */
 footer {
-  padding: 40px 40px;
+  padding: 60px 20px;
   display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: column;
   background-color: oklch(21% 0.034 264.665);
+  text-align: center;
 }
 
 footer h2 {
@@ -477,23 +472,35 @@ footer h2 {
 
 footer p {
   color: oklch(44.6% 0.03 256.802);
-  margin-bottom: 1rem;
+  margin-bottom: 1.5rem;
+  font-size: 16px;
 }
 
-.redesSociais{
+.redesSociais {
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
   align-items: center;
   gap: 30px;
-  margin-bottom: 1rem;
+  margin-bottom: 1.5rem;
+  flex-wrap: wrap; /* Garante que os links quebrem linha em celulares menores */
 }
 
-a{
+.redesSociais a {
   color: oklch(55.1% 0.027 264.364);
   text-decoration: none;
   font-weight: bold;
+  transition: color 0.2s ease;
 }
 
+.redesSociais a:hover {
+  color: #ffffff;
+}
+
+/* ==========================================================
+   MEDIA QUERIES (RESPONSIVIDADE PARA TODOS OS DISPOSITIVOS)
+   ========================================================== */
+
+/* DISPOSITIVOS INTERMEDIÁRIOS (Tablets, iPads e Notebooks Pequenos) */
 @media (max-width: 1024px) {
   .text h2 {
     font-size: 48px;
@@ -509,6 +516,7 @@ a{
   }
 }
 
+/* CELULARES GRANDES E TABLETS EM PÉ (Mobiles em geral, iPhones Max, Androids) */
 @media (max-width: 768px) {
   .navbar {
     flex-direction: column;
@@ -559,7 +567,7 @@ a{
   }
 
   .conteudo-esquerdo br {
-    display: none;
+    display: none; /* Evita quebras artificiais de linha em telas pequenas */
   }
 
   .input-group {
@@ -586,8 +594,17 @@ a{
   .under h2 {
     font-size: 30px;
   }
+  
+  footer {
+    padding: 40px 20px;
+  }
+  
+  .redesSociais {
+    gap: 20px;
+  }
 }
 
+/* CELULARES PEQUENOS (Telas até 480px, como iPhone SE) */
 @media (max-width: 480px) {
   .cards-grid {
     grid-template-columns: 1fr;
